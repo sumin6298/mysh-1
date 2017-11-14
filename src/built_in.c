@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <string.h>
-
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
 #include <linux/limits.h>
-
 #include "built_in.h"
+#include <sys/wait.h>
 
 int do_cd(int argc, char** argv) {
   if (!validate_cd_argv(argc, argv))
@@ -35,8 +34,8 @@ int do_pwd(int argc, char** argv) {
 int do_fg(int argc, char** argv) {
   if (!validate_fg_argv(argc, argv))
     return -1;
-
-  // TODO: Fill this.
+   
+   printf("%d\n", getpid());
 
   return 0;
 }
